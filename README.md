@@ -37,7 +37,7 @@ The docker image mounts a folder containing the following directories and files:
 
 ### Setup
 
-First run the script `compile_delphi.sh`. This script recompiles Delphi and it's dependencies for this docker container. 
+First run the script `compile_delphi.sh`. This script recompiles Delphi and its dependencies for this docker container. 
 
 The tool paper examples can then be reproduced using the prebuilt binaries.
 
