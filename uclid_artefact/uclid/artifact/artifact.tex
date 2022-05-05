@@ -1,0 +1,156 @@
+\documentclass[runningheads]{llncs}
+
+\input{macros}
+
+\begin{document}
+%
+\title{Artifact for Paper \\
+\uclid: Multi-Modal Formal Modeling, Verification, and Synthesis}
+%\title{\uclid}
+%
+\titlerunning{\uclid}
+\authorrunning{Anon}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Elizabeth Polgreen \inst{1,2}
+ \and 
+Kevin Cheang\inst{1}
+\and
+Pranav Gaddamadugu\inst{1}
+\and
+Adwait Godbole \inst{1}
+\and
+Kevin Laeufer\inst{1}
+\and
+Shaokai Lin\inst{1}
+\and
+Yatin A.~Manerkar\inst{1,3}
+\and
+Federico Mora\inst{1}
+\and ~~~~~~~~~~~~
+Sanjit A.~Seshia\inst{1}}
+%
+
+\institute{UC Berkeley \and
+University of Edinburgh \and
+University of Michigan
+}
+
+\maketitle
+
+\newcommand{\artcommand}[1]{\texttt{#1}}
+\newcommand{\uclidcmd}{\textbf{{UCLID5}}~}
+
+\section{Setup}
+
+The submission tarball has the following structure:
+\dirtree{%
+.0 .
+.1 License.txt.
+.1 Readme.txt.
+.1 artifact.pdf.
+.1 TACAS\_2022\_paper\_178.pdf.
+.1 packages.
+.2 sbt\_1.5.5\_all.deb.
+.1 uclid.
+.2 License.txt.
+.2 Readme.txt.
+.2 tool\_paper\_examples.
+.3 example\_<name>.sh scripts.
+.3 export\_paths.
+.3 uclid.
+.3 z3.
+.3 delphi.
+.3 cvc4.
+.3 Fib.
+.3 Control.
+.3 TrustedAbstractPlatform.
+.3 OperAxUhb.
+.3 TrainSystem.
+.3 Readme.md.
+.2 src.
+.2 <others>.
+}
+
+\paragraph{}
+The \artcommand{packages} directory contains the \artcommand{sbt} Debian package which is required to build \uclidcmd from source. This is completely optional and it is not required for running \uclidcmd using the binaries that we have provided.
+The \artcommand{uclid} directory is a snapshot of the \uclidcmd GitHub repository \url{https://github.com/uclid-org/uclid/tree/artifact}. The \artcommand{tool\_paper\_examples} folder is self contained for running the tool on the examples with the provided binaries (see Running with prebuilt binaries below).
+To begin, copy the \artcommand{packages} and \artcommand{uclid} directories into the \artcommand{\$HOME} directory of the VM.
+
+
+\paragraph{Running with prebuilt binaries (recommended)}
+
+The \artcommand{tool\_paper\_examples} directory is self contained with prebuilt \uclidcmd and external solver binaries as well as the relevant examples mentioned in the paper. Please change move into this directory and follow the instructions given in Section \ref{sec:running}.
+
+
+\paragraph{Building from source (optional)} The supplied \artcommand{sbt} Debian package is only required if you wish to build \uclidcmd from source. Start by installing \artcommand{sbt} by running \artcommand{sudo dpkg -i sbt\_1.5.5\_all.deb} from the \artcommand{packages} directory. From the \artcommand{uclid} directory, follow the instructions given at \url{https://github.com/uclid-org/uclid#compiling-uclid5}. After doing so, you can either build the \uclidcmd binary or run examples directly from within the \artcommand{}{sbt} prompt.
+
+
+\section{Running the examples}
+\label{sec:running}
+
+Move into the \artcommand{tool\_paper\_examples} directory. This directory consists of the following:
+
+\begin{itemize}
+    \item Prebuilt binaries for the \uclidcmd tool and the external solvers \artcommand{z3}, \artcommand{cvc4} and \artcommand{delphi} in their respective directories
+    \item Five test-examples directories: \artcommand{Fib}, \artcommand{Control},
+    \artcommand{TrainSystem},
+    \artcommand{OperAxUhb}, and
+    \artcommand{TrustedAbstractPlatform}
+    \item Run scripts for each of the above examples, named as \artcommand{run\_<name>.sh}
+    \item A \artcommand{export\_paths} sourcefile
+\end{itemize}
+
+
+\paragraph{Startup instructions}
+To begin, source the \artcommand{export\_paths} script. 
+This should set permissions for running all the binaries and add required paths to the \artcommand{\$PATH} variable.
+\begin{equation*}
+    \artcommand{source export\_paths}
+\end{equation*}
+To run example \artcommand{examplename}, 
+run the script \artcommand{./run\_<examplename>.sh} 
+from the \artcommand{tool\_paper\_examples} directory.
+Here \artcommand{examplename} corresponds to:
+\artcommand{Fib}, \artcommand{Control},
+\artcommand{TrainSystem}, \artcommand{OperAxUhb}, and \artcommand{TrustedAbstractPlatform}.
+We now describe each of these examples in order. The indicated times are on executing the examples on an Intel(R) Core(TM) i7-10610U 8-core CPU running at 1.8GHz with 16GB of RAM. Note that these are indicative times only, and were not tested in isolation.
+
+\newcommand{\excommand}[1]{$\mathsf{#1}$}
+
+\subsection{\excommand{Fib}}
+\input{example_Fib.tex}
+
+\subsection{\excommand{Control}}
+\input{example_Control.tex}
+\textbf{Running run\_Control.sh should take around 45 seconds.}
+
+\subsection{\excommand{TrainSystem}}
+\input{example_TrainSystem.tex}
+\textbf{Running run\_TrainSystem.sh should take around 30 seconds.}
+
+\subsection{\excommand{OperAxUhb}}
+This example corresponds to Figure 8 in our submitted paper, namely the combined operational-axiomatic model of a microarchitecture whose pipelines fetch instructions in program order.
+The example code contains \texttt{uhb\_common.ucl}, the embedding of $\mu$spec in \uclid (parts of which are shown in Figure 7 of our submitted paper).
+It also contains the code of the model depicted in Figure 8\footnote{Note that the \texttt{fifoFetch} axiom differs very slightly from Figure 8 of our paper due to a small inaccuracy in the submitted paper's code.} of our paper in \texttt{operAx.ucl}.
+The \texttt{operAx.ucl} file also contains two properties (\texttt{FetchHBNextExecute} and \texttt{WBFifo}). The control block of \texttt{operAx.ucl} checks these properties using bounded model checking for traces up to size 5.
+The first property (\texttt{FetchHBNextExecute}) is maintained by a combination of the operational and axiomatic constraints, and so will always be true.
+The second property (\texttt{WBFifo}) is not maintained by the model, and the \texttt{bmc} command duly detects a counterexample trace of length 5 for it.
+\textbf{Running run\_OperAxUhb.sh should take around 30 seconds.}
+
+\subsection{\excommand{TrustedAbstractPlatform}}
+\input{example_TrustedAbstractPlatform.tex}
+\textbf{Running run\_TrustedAbstractPlatform.sh should take around 1 hour.}
+
+\section{Statements}
+\paragraph{Availability}
+As stated earlier, the \uclidcmd tool is publicly available at \url{https://github.com/uclid-org/uclid/tree/master}. This repository includes the source code as well as a comprehensive set of tests.
+
+\paragraph{Badges}
+
+We apply for all three badges: Functional, Reusable, Available.
+
+
+\end{document}
+
