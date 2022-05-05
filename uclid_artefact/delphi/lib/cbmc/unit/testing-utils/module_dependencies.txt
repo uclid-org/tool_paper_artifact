@@ -1,7 +1,0 @@
-analyses
-ansi-c
-catch
-goto-programs
-langapi
-testing-utils
-util

@@ -1,8 +1,0 @@
-CORE
-tableswitch1
-
-^EXIT=0$
-^SIGNAL=0$
-^VERIFICATION SUCCESSFUL$
---
-^warning: ignoring

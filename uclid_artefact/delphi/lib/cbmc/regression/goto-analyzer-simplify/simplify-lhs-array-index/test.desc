@@ -1,7 +1,0 @@
-CORE
-main.c
-"--variable-sensitivity --vsd-arrays"
-
-arr\[0l\] =
-arr\[1l\] =
-arr\[\(signed long int\)nondet\] =

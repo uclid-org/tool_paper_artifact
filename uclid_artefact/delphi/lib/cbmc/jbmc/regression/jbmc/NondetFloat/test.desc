@@ -1,8 +1,0 @@
-CORE
-NondetFloat
---function NondetFloat.main
-^VERIFICATION FAILED$
-^EXIT=10$
-^SIGNAL=0$
---
-^warning: ignoring

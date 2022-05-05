@@ -1,5 +1,0 @@
-CORE
-main.gb
---breakpoint checkpoint --symbols p1,x,p2
-^EXIT=0$
-^SIGNAL=0$

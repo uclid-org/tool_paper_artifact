@@ -1,6 +1,0 @@
-CORE
-TooManyLocals
---function TooManyLocals.test
-VERIFICATION SUCCESSFUL
-^EXIT=0$
-^SIGNAL=0$

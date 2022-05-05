@@ -1,8 +1,0 @@
-CORE
-test
---function test.translate
-^EXIT=0$
-^SIGNAL=0$
-^VERIFICATION SUCCESSFUL$
---
-^warning: ignoring

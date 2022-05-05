@@ -1,8 +1,0 @@
-CORE
-NondetDouble
---function NondetDouble.main
-^VERIFICATION FAILED$
-^EXIT=10$
-^SIGNAL=0$
---
-^warning: ignoring

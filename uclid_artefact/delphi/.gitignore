@@ -1,8 +1,0 @@
-
-*.d
-*.o
-.vscode/c_cpp_properties.json
-
-src/emu/emu
-
-src/delphi/delphi

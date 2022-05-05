@@ -1,7 +1,0 @@
-CORE broken-smt-backend
-test.c
---trace --json-ui
-^EXIT=10$
-^SIGNAL=0$
---
-rawLhs
