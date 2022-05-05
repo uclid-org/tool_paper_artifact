@@ -2,14 +2,25 @@
 
 ## Instructions for setup with docker
 
-To recreate the docker image from scratch:
+### From the Dockerfile
+To create the docker image from the Dockerfile:
 
 ~~~
-docker build -t image -f Dockerfile .
-docker run -i -t image /bin/bash
+tar -czvf uclid.tar.gz uclid_artefact
+docker build -t uclid_image -f Dockerfile .
+docker run -i -t uclid_image /bin/bash
 ~~~
 
 You are then inside the docker container. 
+
+### Using the pre-saved docker image
+
+(presaved image is too large to upload to github)
+
+~~~
+docker run -i -t uclid_image.tar.gz /bin/bash
+~~~
+
 
 ## Inside the docker container
 
