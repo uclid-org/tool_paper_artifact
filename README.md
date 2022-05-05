@@ -27,9 +27,8 @@ docker run -i -t uclid_image.tar.gz /bin/bash
 
 The docker image mounts a folder containing the following directories and files:
 - uclid_artefact/Readme.txt - a duplicate of this readme
-- uclid_artefact/bin - precompiled binaries for UCLID5, Z3, CVC4, CVC5. The docker image automatically adds this to the path.
-- uclid_artefact/compile_delphi.sh - a script to recompile Delphi for the docker container, and copy the binary into artefact/bin
-- uclid_artefact/delphi - source code for delphi
+- uclid_artefact/bin - precompiled binaries for UCLID5, Z3, CVC4, CVC5, and
+delphi. The docker image automatically adds this to the path.
 - uclid_artefact/tool_paper_examples - scripts to run all of the examples in the tool paper
 - uclid_artefact/uclid - the source code for UCLID5
 - uclid_artefact/artifact.pdf - a PDF giving details of all the examples in the artifact
@@ -37,9 +36,8 @@ The docker image mounts a folder containing the following directories and files:
 
 ### Setup
 
-First run the script `compile_delphi.sh`. This script recompiles Delphi and its dependencies for this docker container. 
-
 The tool paper examples can then be reproduced using the prebuilt binaries.
+No set up is necessary.
 
 
 ### Running `UCLID5` on the examples:
