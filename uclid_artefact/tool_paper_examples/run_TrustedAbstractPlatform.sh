@@ -5,11 +5,11 @@ cd TrustedAbstractPlatform
 
 echo "Verifying TAP model ..."
 cd modules
-time make tap
+#time make tap
 
 echo "Verify integrity proof ..."
 cd ../proofs
-time make
+#time make
 
 echo "Returning to examples directory ..."
 cd ../../
@@ -19,8 +19,8 @@ cd ../../
 #git submodule update --init --recursive
 
 #echo "Verifying TAP models in Boogie ..."
-#cd TAP/AbstractPlatform
-#time boogie CPU.bpl CPUImpl.bpl Types.bpl ../Common/Cache.bpl ../Common/CacheImpl.bpl ../Common/Common.bpl ../Common/Types.bpl
+cd TAP/AbstractPlatform
+time ../../../bin/boogie/BoogieDriver CPU.bpl CPUImpl.bpl Types.bpl ../Common/Cache.bpl ../Common/CacheImpl.bpl ../Common/Common.bpl ../Common/Types.bpl
 
 #echo "Verifying integrity proof model in Boogie ..."
-#time boogie IntegrityProof.bpl CPU.bpl CPUImpl.bpl Types.bpl ../Common/Cache.bpl ../Common/CacheImpl.bpl ../Common/Common.bpl ../Common/Types.bpl ProofCommon.bpl /proc:ProveIntegrity
+time ../../../bin/boogie/BoogieDriver IntegrityProof.bpl CPU.bpl CPUImpl.bpl Types.bpl ../Common/Cache.bpl ../Common/CacheImpl.bpl ../Common/Common.bpl ../Common/Types.bpl ProofCommon.bpl /proc:ProveIntegrity
