@@ -1,5 +1,7 @@
 # UCLID5 artifact
 
+This artifact is available on Zenodo: 
+
 ## Instructions for setup with docker
 
 ### From the Dockerfile
@@ -15,9 +17,8 @@ You are then inside the docker container.
 
 ### Using the pre-saved docker image
 
-(presaved image is too large to upload to github)
-
 ~~~
+cat uclid_image.tar.gza* >uclid_image.tar.gz
 docker run -i -t uclid_image.tar.gz /bin/bash
 ~~~
 
@@ -53,7 +54,6 @@ The tool paper examples can then be reproduced using the prebuilt binaries.
 ### Availability statement:
 
 The `UCLID5` tool is publicly available at https://github.com/uclid-org/uclid/tree/master. This repository includes the source code as well as a comprehensive set of tests.
-
 
 
 ### Badges:
