@@ -1,0 +1,7 @@
+CORE
+simple-unsat.smt2
+--bitblast
+^EXIT=0$
+^SIGNAL=0$
+^unsat$
+--
