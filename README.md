@@ -8,9 +8,10 @@ This artifact is available on Zenodo:
 To create the docker image from the Dockerfile:
 
 ~~~
+sudo service docker start
 tar -czvf uclid.tar.gz uclid_artefact
-docker build -t uclid_image -f Dockerfile .
-docker run -i -t uclid_image /bin/bash
+sudo docker build -t uclid_image -f Dockerfile .
+sudo docker run -i -t uclid_image /bin/bash
 ~~~
 
 You are then inside the docker container. 
