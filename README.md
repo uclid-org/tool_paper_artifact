@@ -20,7 +20,8 @@ You are then inside the docker container.
 
 ~~~
 cat uclid_image.tar.gza* >uclid_image.tar.gz
-docker run -i -t uclid_image.tar.gz /bin/bash
+docker load -i uclid_image.tar.gz
+docker run -i -t uclid_image /bin/bash
 ~~~
 
 
