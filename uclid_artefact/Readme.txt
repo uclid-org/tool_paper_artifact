@@ -2,13 +2,12 @@
 
 ---
 
-
 The docker image mounts a folder containing the following directories and files:
-- artefact/Readme.txt - a duplicate of this readme
+- artefact/Readme.txt - this readme
 - artefact/bin - precompiled binaries for UCLID5, Z3, CVC4, CVC5 and delphi. The docker image automatically adds this to the path.
 - artefact/tool_paper_examples - scripts to run all of the examples in the tool paper
 - artefact/uclid - the source code for UCLID5
-- artefact/artifact.pdf - a PDF giving details of all the examples in the artifact
+- artefact/full_experimental_setup.pdf - a PDF giving details of all the examples in the artifact
 
 
 ### Setup
